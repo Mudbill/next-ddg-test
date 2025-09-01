@@ -1,5 +1,6 @@
 import type { DuckDuckGoImage } from "./api";
 import { constants } from "./constants";
+import fs from "node:fs/promises";
 
 export interface ExpectedResponse {
   results: DuckDuckGoImage[];
@@ -50,9 +51,12 @@ export async function getToken(query: string) {
   const text = await res.text();
   const token = text.match(/vqd=([\d-]+)\&/)?.[1] || "";
 
+  return "";
+
+  //   await fs.writeFile("./output.html", text);
+
   if (!token) {
-    console.warn(text);
-    throw new Error("Failed to get token");
+    // throw new Error("Failed to get token");
   }
 
   return token;
