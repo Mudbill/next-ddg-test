@@ -1,4 +1,4 @@
-import { imageSearch } from "@mudbill/duckduckgo-images-api";
+import { imageSearch } from "@/utils/ddg/api";
 
 export async function GET() {
   console.log("Searching DDG for images...");
