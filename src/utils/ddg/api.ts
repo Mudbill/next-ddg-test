@@ -98,6 +98,8 @@ export async function* imageSearchGenerator(
         // Get JSON body
         const body = (await response.json()) as unknown;
 
+        console.warn(body);
+
         // Validate the JSON body
         if (isResponseValid(body)) {
           // Update URL for the next iteration and re-set the token (which is not included)
