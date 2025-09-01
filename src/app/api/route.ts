@@ -5,6 +5,8 @@ export async function GET() {
 
   const images = await imageSearch({
     query: "pikachu",
+    iterations: 1,
+    retries: 1,
   });
 
   console.log("Got", images.length, "results");
