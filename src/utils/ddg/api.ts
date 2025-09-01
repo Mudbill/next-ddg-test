@@ -92,6 +92,9 @@ export async function* imageSearchGenerator(
 
         // Fall back to catch block if response is not okay
         if (!response.ok) {
+          console.warn(response);
+          const text = await response.text();
+          console.warn(text);
           throw new Error("Response was no good");
         }
 
@@ -115,6 +118,7 @@ export async function* imageSearchGenerator(
           );
         }
       } catch (error) {
+        console.error(error);
         // Wait 1 second and try again (if more attempts are allowed)
         await sleep(1000);
         continue;
